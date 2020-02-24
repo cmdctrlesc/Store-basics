@@ -1,0 +1,128 @@
+{% extends 'mainapp/base_search.html' %}
+
+{% load static %}
+{% load main_extras %}
+
+
+{% block extrahead4 %}
+<link rel="stylesheet" href="{% static "mainapp/css/searchstyles2.css" %}">
+{% endblock %}
+
+
+
+{% block search %}
+
+<div>
+
+<div class="titlequerydiv"> 
+Showing results for {{query}}:
+
+</div>
+
+
+
+{% for artist in results %}
+{% get_records_label artist.name as records %}
+
+<div>
+
+
+
+<div class="generalartistdiv"> 
+
+{{artist.name}}
+<br>
+{{artist.wikiinfo}}
+<br>
+{{artist.wikiinfolink}}
+<br>
+</div>
+
+
+
+
+
+
+<div class="backgrounddiv" >
+
+
+
+
+    {% for record in records %}
+    <div>
+
+    <div class="innerrecordsdiv">
+ 
+    <img class="vinyl" src="{% static 'mainapp/images/vinylrewhite.png'%}">
+     
+    <a href="{{ record.get_absolute_url }}">
+    <img class="cover" src="{% if record.coverimage %} {{ record.coverimage.url }} {% else %} {% static 'mainapp/images/default.jpg' %} {% endif %}">
+    </a>
+
+    <div class="titlediv">
+    <div class="recordartist"> 
+    {{record.artist.name}}
+    </div>
+    <div class="recordtitle">
+    {{record.title}}
+
+
+    </div>
+    
+
+
+    <div class="recordlabeletc">
+    {{record.label.name}}
+    <br>
+
+
+   {{record.unit}}{{record.recordformat}}
+    <br>
+   {{record.price}}
+    </div>
+
+    </div>
+
+
+
+
+    </div>
+
+    </div>
+    {% endfor %} 
+
+
+
+</div>
+</div> 
+{% endfor %}   
+
+</div>
+
+{% if results.paginator.num_pages > 1 %}
+
+    <div class="paginator">
+        {% if results.has_previous %}
+            <a href="?page=1&query={{query}}">First</a>
+            <a href="?page={{ results.previous_page_number }}&query={{query}}">Previous</a>
+        {% endif %}
+        <span>{{ results.number }}</span><span>of</span> <span>{{ results.paginator.num_pages }}</span>
+        {% if results.has_next %}
+            <a href="?page={{ results.next_page_number }}&query={{query}}">Next</a>
+            <a href="?page={{ results.paginator.num_pages }}&query={{query}}">Last</a>
+        {% endif %}
+    </div>
+
+{% endif %}  
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+

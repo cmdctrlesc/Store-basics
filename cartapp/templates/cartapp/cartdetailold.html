@@ -1,0 +1,85 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block extrahead5 %}
+<link rel="stylesheet" href="{% static "cartapp/css/cartstyles.css" %}">
+{% endblock %}
+
+
+{% block cart %}
+
+<div class="backgrounddiv">
+
+</div>
+
+<div class="whitediv">
+
+</div>
+
+
+
+
+
+<div>
+
+<div>
+Your shopping cart
+{% with total_items=cart|length %}
+    {% if cart|length > 0 %}
+        My Shopping Order:
+        <a href="{% url "cart:cart_detail" %}">
+            {{ total_items }} item {{ total_items|pluralize }}, Kshs. {{ cart.get_total_price }}
+        </a>
+    {% else %}
+        Your cart is empty.
+    {% endif %}
+{% endwith %}
+</div>
+
+
+
+
+{% for item in cart %}
+    {% with product=item.record  %}
+        <div>
+
+        <a href="{{ product.get_absolute_url }}">
+            <img src="{% if product.coverimage %} {{ product.coverimage.url }} {% else %} {% static 'mainapp/images/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: 130px">
+        </a>
+
+        {{ product.title }}
+
+        <form action="{% url "cart:cart_add" product.id %}" method="post">
+            {% csrf_token %}
+            {{ item.update_quantity_form.quantity }}
+            {{ item.update_quantity_form.update }}
+            <input type="submit" value="Update">
+        </form>
+
+        <a href="{% url "cart:cart_remove" product.id %}">Remove</a>
+
+        kshs. {{ item.price }}
+        kshs. {{ item.total_price }}
+
+        </div> 
+
+    {% endwith %}
+   
+{% endfor %}
+
+  <b>Total</b>
+
+<b>{{ cart.get_total_price }}</b>
+
+
+<a href="{% url "mainapp:mainview" %}">Continue Shopping</a> 
+<a href=" " >Checkout</a>
+
+</div>
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,147 @@
+.titlediv {
+    width:100%;
+    height:60px;
+    background-color:white;
+    color:black;
+    font-size:40px;
+    font-family: 'Source Code Pro', monospace;
+    padding-left:290px;
+    padding-top:100px;
+}
+
+.whitediv {
+    height:100px;
+    width:100%;
+    background-color:white;
+
+}
+
+
+
+.recordsincart {
+    width:100%;
+    height:auto;
+    background-color:grey;
+}
+
+
+.innerrecordsincart {
+    width:100%;
+    height:400px;
+    background:grey;
+
+}
+
+
+
+
+
+.vinylrecord {
+    width:200px;
+    height:200px;
+    position:absolute;
+    margin-top:30px;
+    margin-left:90px;
+    z-index:5;
+    
+    
+
+} 
+
+
+
+.vinylcover {
+    width:200px;
+    height:200px;
+    position:absolute;
+    margin-left:90px;
+    margin-top:80px;
+    border: 2px solid black;
+    border-width: 3px;
+    z-index:2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index:6;
+
+
+}
+
+.maintitlediv {
+    position: absolute;
+    height:300px;
+    background-color:black;
+    border: 2px solid black;
+    border-width: 2px;
+    margin-left:0px;
+    margin-top:80px;
+    width:100%;
+    font-size: 25px;
+    color:white;
+    padding-left:400px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    
+
+
+
+}
+
+
+.recordtitle {
+    font-size:25px;
+    margin-top:20px;
+    font-weight:600;
+    font-family: 'Source Code Pro', monospace;
+    background: black;
+    text-shadow: 2px 1px 0 #7A7A7A;
+    	
+    
+
+
+}
+
+
+
+.removebtn {
+
+    position:absolute;
+    background-color:black;
+    margin-left: 400px;
+    width:150px;
+    height:30px;
+    margin-top:300px;
+    margin-bottom:200px;
+    border: 2px solid white;
+    color:white;
+    border-width: 3px;
+    font-family: 'Source Code Pro', monospace;
+    /* font-family: 'Comfortaa', cursive; */
+    font-weight: 700;
+    font-size:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:40px;
+    /* box-shadow: 5px 5px white; */
+
+}
+
+
+
+.checkoutdiv {
+    width:100%;
+    height:150px;
+    background-color:white;
+    color:black;
+    padding:20px;
+    font-family: 'Source Code Pro', monospace;
+    font-size:30px;
+
+}
+
+
+
+
+
+
+

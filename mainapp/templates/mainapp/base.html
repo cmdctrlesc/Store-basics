@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/basestyles.css'%}"/>
+<link href="https://fonts.googleapis.com/css?family=Comfortaa|Source+Code+Pro:400,600,700&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% block extrahead %}{% endblock %}
+{% block extrahead2 %}{% endblock %}
+{% block extrahead3 %}{% endblock %}
+{% block extrahead4 %}{% endblock %}
+{% block extrahead5 %}{% endblock %}
+
+</head>
+<body>
+
+<header class="header"> 
+
+<div>
+<img class="textlogo" src="{% static 'mainapp/images/textlogo.png' %}">
+</div>
+<div>
+<a href="{% url "cartapp:cart_detail" %}">
+<img class="cart" src="{% static 'mainapp/images/whitecart.png' %}">
+</a>
+</div>
+<div>
+<a href="{% url "mainapp:mainview" %}">
+<img class="search" src="{% static 'mainapp/images/whitesearchicon.png' %}">
+</a>
+
+</div>
+
+
+
+
+<div class="contextprocessordiv">
+{% with total_items=cart|length %}
+    {% if cart|length > 0 %}
+           ({{ total_items }})
+        
+    {% else %}
+       (O)
+    {% endif %}
+{% endwith %} 
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+
+{% block content %}
+{% endblock %}
+
+{% block search %}
+{% endblock %}
+
+{% block detail %}
+{% endblock %}
+
+{% block cart %}
+{% endblock %}
+
+{% block seeall %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footer">
+<div>
+
+<img class="bottomlogo" src="{% static 'mainapp/images/logo.png' %}">
+</div>
+</div>
+
+
+</body>
+
+</body>
+</html>

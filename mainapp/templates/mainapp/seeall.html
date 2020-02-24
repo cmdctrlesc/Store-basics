@@ -1,0 +1,78 @@
+
+{% extends 'mainapp/base.html' %}
+
+{% load static %}
+
+
+{% block extrahead3 %}
+<link rel="stylesheet" href="{% static "mainapp/css/detailstyles.css" %}">
+{% endblock %}
+
+{% block seeall %}
+
+
+<div class="seemorebackground">
+
+<div class="seemoretitle">
+All records from {{title}}:
+
+</div>
+
+{% for record in queryset %}
+
+<div>
+
+<div class="innerrecordsdiv">
+
+<img class="vinyl" src="{% static 'mainapp/images/vinylrewhite.png'%}">
+     
+<a href="{{ record.get_absolute_url }}">
+<img class="cover" src="{% if record.coverimage %} {{ record.coverimage.url }} {% else %} {% static 'mainapp/images/default.jpg' %} {% endif %}">
+</a>
+
+<div class="titlediv">
+<div class="recordartist"> 
+{{record.artist.name}}
+</div>
+<div class="recordtitle1">
+{{record.title}}
+
+
+</div>
+
+
+
+<div class="recordlabeletc">
+{{record.label.name}}
+<br>
+
+
+{{record.unit}}{{record.recordformat}}
+<br>
+{{record.price}}
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+{% endfor %}
+
+</div>
+
+
+{% endblock %}

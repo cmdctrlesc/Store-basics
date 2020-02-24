@@ -1,0 +1,331 @@
+
+{% extends 'mainapp/base.html' %}
+
+{% load static %}
+
+
+
+{% block extrahead3 %}
+<link rel="stylesheet" href="{% static "mainapp/css/detailstyles.css" %}">
+{% endblock %}
+
+{% block detail %}
+
+
+<div class="contentdiv">
+
+<img class="vinylrecord" src="{% static 'mainapp/images/vinylrewhite.png'%}">
+<img class="vinylcover" src="{% if record.coverimage %} {{ record.coverimage.url }} {% else %} {% static 'mainapp/images/default.jpg' %} {% endif %}">
+
+
+<div class="maintitlediv">
+
+<div class="mainrecordtitle"> 
+{{record.artist.name}}
+<br>
+{{record.title}}
+</div>
+<br>
+
+{{record.label.name}}
+
+</div>
+</div>
+
+
+
+<div class="moreinfodiv"> 
+
+<form action="{% url "cart:cart_add" record.id %}" method="POST">
+{% csrf_token %}
+<div class="addtocart">
+<input type="submit" value="add to cart" class="btnadd" data-add="{% url "cart:cart_add" record.id %}" data-remove="{% url "cart:cart_remove" record.id %}" > </input>
+</div>
+</form>
+<script>
+$(document).ready(function(){
+$('.btnadd').click(function() {
+
+
+   if  ($('.btnadd').val() == 'add to cart') {
+    $('.btnadd').val('remove from cart'); 
+    {% comment %} $('.btnadd').attr("data-remove"); {% endcomment %}
+
+
+   }
+   
+   else {
+       $('.btnadd').val('add to cart'); 
+       {% comment %} $('.btnadd').attr("data-add"); {% endcomment %}
+   
+   } 
+
+
+
+});
+});
+
+{% comment %} function add_to_cart() {
+    $('.btnadd').val('remove from cart');
+
+}
+
+function remove_from_cart() {
+    $('.btnadd').val('add to cart');
+
+}  {% endcomment %}
+
+
+
+
+
+</script>
+
+
+
+<div class="basicinfodiv"> 
+<div class="basicinfotitle">
+Item details:
+</div>
+<br>
+
+
+<br>
+Barcode: {{record.barcode}}
+<br>
+ID number: {{record.recordid}}
+<br>
+{{record.unit}}{{record.recordformat}}
+<br>
+{{record.price}}
+</div>
+
+<div class="detailinfodiv">
+<div class="detailinfotitle">
+Tracklist:
+</div>
+<div>
+{% for song in songs%}
+<div>
+{{song.position}} - {{song.name}}
+<br>
+
+</div>
+{% endfor %}
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="videodiv"> 
+<iframe class="frame" src="https://www.youtube.com/embed/NY6hBKdCaV4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+</div>
+
+<div class="descriptiondiv"> 
+<div class="detaildescription">
+<div class="detailtitle"> More info: </div>
+
+<br>
+
+{{record.wikiinfo}}
+
+{{record.wikilink}}
+
+<br>
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+{% if products_from_artist1.count > 0 %}
+
+<div class="morefromartisttitle">
+More from artist:
+
+
+</div>
+
+
+
+<div class="morefromartistdiv"> 
+
+
+{% for record in products_from_artist1 %}
+
+<div>
+
+<div class="innerrecordsdiv">
+
+<img class="vinyl" src="{% static 'mainapp/images/vinylrewhite.png'%}">
+     
+    <a href="{{ record.get_absolute_url }}">
+    <img class="cover" src="{% if record.coverimage %} {{ record.coverimage.url }} {% else %} {% static 'mainapp/images/default.jpg' %} {% endif %}">
+    </a>
+
+    <div class="titlediv">
+    <div class="recordartist"> 
+    {{record.artist.name}}
+    </div>
+    <div class="recordtitle">
+    {{record.title}}
+
+
+    </div>
+    
+
+
+    <div class="recordlabeletc">
+    {{record.label.name}}
+    <br>
+
+
+   {{record.unit}}{{record.recordformat}}
+    <br>
+   {{record.price}}
+    </div>
+
+    </div>
+
+
+
+
+    </div>
+
+    </div>
+
+
+
+{% endfor %} 
+
+{% if products_from_artist.count > products_from_artist1.count %} 
+
+
+<a href="{% url "mainapp:allfromartist" %}">
+<div class="seemore">
+see all
+</div>
+</a>
+
+</div>
+
+{% endif %}
+
+{% endif %}
+
+
+</div>
+
+{% if products_from_label1.count > 0 %} 
+
+<div class="morefromlabeltitle">
+More from label:
+
+
+</div>
+
+<div class="morefromlabeldiv"> 
+
+{% for record in products_from_label1 %}
+
+<div>
+
+<div class="innerrecordsdiv">
+
+<img class="vinyl" src="{% static 'mainapp/images/vinylrewhite.png'%}">
+     
+<a href="{{ record.get_absolute_url }}">
+<img class="cover" src="{% if record.coverimage %} {{ record.coverimage.url }} {% else %} {% static 'mainapp/images/default.jpg' %} {% endif %}">
+</a>
+
+<div class="titlediv">
+<div class="recordartist"> 
+{{record.artist.name}}
+</div>
+<div class="recordtitle1">
+{{record.title}}
+
+
+</div>
+
+
+
+<div class="recordlabeletc">
+{{record.label.name}}
+<br>
+
+
+{{record.unit}}{{record.recordformat}}
+<br>
+{{record.price}}
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+{% endfor %} 
+
+{% if products_from_label.count > products_from_label1.count %} 
+
+
+<a href="{% url "mainapp:allfromlabel" %}">
+<div class="seemore">
+see all
+</div>
+</a>
+
+</div>
+
+{% endif %}
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+

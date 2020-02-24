@@ -1,0 +1,59 @@
+
+
+{% extends 'mainapp/base.html' %}
+
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static "mainapp/css/basesearchstyles.css" %}">
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+
+
+<div class="searchdiv"> 
+
+
+<form action="{% url 'mainapp:searchresults' %}" method="GET" >
+
+
+<input type="text" name="q" action="/search/" class="input" placeholder="Search...">  </input>
+<div class="everythingdiv">
+<input id="mtka" value="everything" type="submit" name="everything" class="btn1"></input>
+</div>
+<div class="titlesdiv">
+<input value="album titles" type="submit" name="albumtitles"  class="btn2"</input>
+</div>
+<div class="artistdiv">
+<input value="artist names" type="submit" name="artistnames" class="btn3"> </input>
+</div>
+<div class="labeldiv">
+<input value="record labels" type="submit" name="recordlabels" class="btn4"> </input>
+</div>
+</form>
+
+
+
+
+</div>
+
+
+
+
+
+{% endblock %}
+
+
+{% block search %}
+{% endblock %}
+
+{% block titlesearch %}
+{% endblock %}
+
+

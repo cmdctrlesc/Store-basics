@@ -1,0 +1,162 @@
+
+.titlequerydiv {
+    background-color:white;
+    color:black;
+    margin-right:0;
+    margin-left:0;
+    height:2.5rem;
+    font-size:1.5625rem;
+    padding-left:15%;
+    padding-right:5%;
+    padding-bottom:0.3125rem;
+    padding-top:1.25rem;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 800;
+
+
+
+}
+
+.backgrounddiv {
+    background-color:black;
+}
+
+.upperdiv {
+    position:absolute;
+    margin-left:18.45rem;
+    margin-right:0;
+    height:7.5rem;
+    width:78%;
+    background-color:black;
+    padding-left:0px;
+    border-top: 0.125rem solid white;
+    border-width: 0.1875rem;
+    border-right: 0.125rem solid black;
+    border-width: 0.1875rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+
+
+.outsidediv {
+    position: relative;
+    height:21.875rem;
+    width:100%;
+    margin-top:3.125rem;
+    margin-left:0;
+    padding-left:0;
+    margin-right:0;
+    padding-right:0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Comfortaa';
+    background-color:white;
+    color:black;
+    	
+
+
+}
+
+
+
+
+
+
+
+.vinyl {
+    width:12.5rem;
+    height:12.5rem;
+    position:absolute;
+    margin-top:3.75rem;
+    margin-left:5.625rem;
+    
+    
+
+}
+
+
+
+.cover {
+    width:12.5rem;
+    height:12.5rem;
+    position:absolute;
+    margin-left:5.625rem;
+    margin-top:7.5rem;
+    border: 0.1875rem solid black;
+    border-width: 0.1875rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+.titlediv {
+    position:absolute;
+    height:2.5rem;
+    width:56.25rem;
+    margin-left:18.75rem;
+    margin-top:1.875rem;
+    font-size:2.1875rem;
+    padding-left:0.625rem;
+    font-family: 'Source Code Pro', monospace;
+
+
+
+}
+
+
+.artistnamediv {
+    font-weight: 600;
+    text-shadow: 2px 1px 0 #7A7A7A;
+    color:white;
+    
+}
+
+
+
+.recordtitlediv {
+    font-weight: 600;
+    text-shadow: 2px 1px 0 #7A7A7A;
+    color:white;
+    font-size: 1.875rem
+
+
+}
+
+.recordlabeldiv {
+    margin-top:1.25rem;
+    font-size:1.25rem;
+    color:black;
+}
+
+
+
+.descriptionsdiv {
+    margin-top:1.25rem;
+    font-size:0.9375rem;
+    color:black;
+    font-family: 'Comfortaa';
+}
+
+
+.paginator {
+    position:relative;
+    margin-left:0px;
+    margin-right:0px;
+    height:2.5rem;
+    width:100%;
+    text-align:center;
+    font-family: 'Source Code Pro', monospace;
+    padding-top:1.25rem;
+    padding-bottom:0px;
+    background-color:black;
+    color:white;
+    background-size:cover;
+    border-bottom: 0.125rem solid white;
+    border-width: 0.1875rem;
+
+
+
+}
+
+

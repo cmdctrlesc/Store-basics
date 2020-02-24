@@ -1,0 +1,109 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block extrahead5 %}
+<link rel="stylesheet" href="{% static "cartapp/css/cartstyles.css" %}">
+{% endblock %}
+
+
+{% block cart %}
+
+
+<div>
+
+<div>
+<div class="titlediv">
+Your shopping cart:
+</div>
+
+
+</div>
+
+
+</div class="recordsincart">
+
+{% for item in cart %}
+    {% with product=item.record  %}
+
+    <div class="innerrecordsincart">
+
+   
+
+
+
+    <img class="vinylrecord" src="{% static 'mainapp/images/vinylrewhite.png'%}">
+    <a href="{{ product.get_absolute_url }}">
+    <img src="{% if product.coverimage %} {{ product.coverimage.url }} {% else %} {% static 'mainapp/images/default.jpg' %} {% endif %}" class="vinylcover">
+    </a>
+
+
+
+    <div class="maintitlediv">
+
+    <div class="recordtitle"> 
+    {{product.artist.name}}
+    <br>
+    {{product.title}}
+    </div>
+    <br>
+    
+  
+
+    {{ item.price }}
+    {{ item.total_price }}
+
+    </div>
+
+    <div class="removebtn">
+    <a href="{% url "cart:cart_remove" product.id %}">Remove</a>
+    </div>
+
+    </div>
+
+    <div>
+
+
+    {% endwith %}
+
+
+
+
+
+
+
+    
+{% endfor %}
+
+
+</div>
+
+
+
+
+<div class="checkoutdiv">
+
+
+{% with total_items=cart|length %}
+    {% if cart|length > 0 %}
+        My order total:
+        <a href="{% url "cart:cart_detail" %}">
+            {{ total_items }} item {{ total_items|pluralize }}, total price: {{ cart.get_total_price }}
+        </a>
+    {% else %}
+        Your cart is empty.
+    {% endif %}
+{% endwith %}
+
+<br>
+
+<a href=" " >Checkout</a>
+
+</div>
+
+
+
+
+
+{% endblock %}
+
+
