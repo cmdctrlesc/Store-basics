@@ -1,1 +1,1 @@
-Django record store from scratch - learning project from 2019.
+Django record store from scratch - 2019 learning project.
